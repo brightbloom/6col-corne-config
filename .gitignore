@@ -1,0 +1,5 @@
+/zmk
+/modules
+/config/.venv
+/.west
+/zephyr
