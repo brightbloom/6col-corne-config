@@ -3,14 +3,24 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/pointing.h>
 
-// Corne 42-key positions:
-//  0-11 top row (L 0-5, R 6-11)    12-23 home row (L 12-17, R 18-23)
-// 24-35 bottom row (L 24-29, R 30-35)   36-41 thumbs (L 36-38, R 39-41)
+#undef MOVE_MAX
+#define MOVE_MAX 1800
+#undef SCRL_MAX
+#define SCRL_MAX 14
 
 &mmv {
     time-to-max-speed-ms = <300>;
     acceleration-exponent = <1>;
 };
+
+&msc {
+    time-to-max-speed-ms = <300>;
+    acceleration-exponent = <0>;
+};
+
+// Corne 42-key positions:
+//  0-11 top row (L 0-5, R 6-11)    12-23 home row (L 12-17, R 18-23)
+// 24-35 bottom row (L 24-29, R 30-35)   36-41 thumbs (L 36-38, R 39-41)
 
 / {
     behaviors {
@@ -26,7 +36,7 @@
             bindings = <&kp>, <&kp>;
         };
 
-        // Right-hand mod-tap: only holds if a left-hand key is pressed
+        // Right-hand mod-tap: only holds if a left-hand key (or Space) is pressed
         hmr: homerow_mod_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -38,7 +48,7 @@
             bindings = <&kp>, <&kp>;
         };
 
-        // Layer-tap for P and T (replaces lt_std / lt_t)
+        // Layer-tap for P (layer 2) and T (layer 3)
         lth: layer_tap_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
