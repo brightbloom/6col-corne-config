@@ -3,3 +3,4 @@
 /config/.venv
 /.west
 /zephyr
+/build
