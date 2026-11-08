@@ -7,6 +7,11 @@
 //  0-11 top row (L 0-5, R 6-11)    12-23 home row (L 12-17, R 18-23)
 // 24-35 bottom row (L 24-29, R 30-35)   36-41 thumbs (L 36-38, R 39-41)
 
+&mmv {
+    time-to-max-speed-ms = <300>;
+    acceleration-exponent = <1>;
+};
+
 / {
     behaviors {
         // Left-hand mod-tap: only holds if a right-hand key is pressed
