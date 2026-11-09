@@ -4,3 +4,5 @@
 /.west
 /zephyr
 /build
+/left.uf2
+/right.uf2
